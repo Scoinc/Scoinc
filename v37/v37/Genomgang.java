@@ -33,7 +33,7 @@ public class Genomgang {
 		 */
 		
 		int heltal = 5; //skapar "heltal" och fyller den med 5
-		int svar; //betyder egentligen ingenting eller gör någonting
+		int svar; //betyder ingenting eller gör någonting
 		
 		svar = heltal*heltal;
 		
