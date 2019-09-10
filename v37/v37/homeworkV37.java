@@ -10,7 +10,23 @@ public class homeworkV37 {
 		
 		System.out.println("Vad är ditt namn?\n");
 		
+		String name = input.nextLine();
 		
+		System.out.println("Hur gammal är du?\n");
+		
+		String age = input.nextLine();
+		
+		System.out.println("Vad är ditt namn?\n");
+		
+		String namn = input.nextLine();
+		
+		System.out.println("Vad är ditt namn?\n");
+		
+		String namn = input.nextLine();
+		
+		System.out.println("Vad är ditt namn?\n");
+		
+		String namn = input.nextLine();
 		
 
 	}
