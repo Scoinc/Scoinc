@@ -8,25 +8,29 @@ public class homeworkV37 {
 		
 		Scanner input = new Scanner(System.in); //no clue why as to the resource leak
 		
-		System.out.println("Vad är ditt namn?\n");
+		System.out.println("Vad är ditt namn?");
 		
 		String name = input.nextLine();
 		
-		System.out.println("Hur gammal är du?\n");
+		System.out.println("\nHur gammal är du?");
 		
 		String age = input.nextLine();
 		
-		System.out.println("Vad är ditt namn?\n");
+		System.out.println("\nVad är din adress?");
 		
-		String namn = input.nextLine();
+		String adress = input.nextLine();
 		
-		System.out.println("Vad är ditt namn?\n");
+		System.out.println("\nVad är ditt postnummer?");
 		
-		String namn = input.nextLine();
+		String postn = input.nextLine();
 		
-		System.out.println("Vad är ditt namn?\n");
+		System.out.println("\nVilken stad bor du i?");
 		
-		String namn = input.nextLine();
+		String stad = input.nextLine();
+		
+		System.out.println("\nVad är ditt telefonnummer?");
+		
+		String telefon = input.nextLine();
 		
 
 	}
