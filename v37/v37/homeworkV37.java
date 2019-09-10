@@ -8,6 +8,10 @@ public class homeworkV37 {
 		
 		Scanner input = new Scanner(System.in); //no clue why as to the resource leak
 		
+		System.out.println("Vad är ditt namn?\n");
+		
+		
+		
 
 	}
 
