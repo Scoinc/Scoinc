@@ -33,20 +33,20 @@ public class Genomgang {
 		 */
 		
 		int heltal = 5; //skapar "heltal" och fyller den med 5
-		int svar; //deklarera
+		int svar; //betyder egentligen ingenting eller gör någonting
 		
 		svar = heltal*heltal;
 		
 				
-		System.out.println("svar " + heltal*heltal);
+		System.out.println("svar " + heltal*heltal); //printar ordet "svar" med ett mellanslag följt av heltal^2
 
-		double pi = 3.14;
+		double pi = 3.14; //gör doublen "pi" till siffran pi
 		
 		double radie = 5;
 		
 		double area = pi*radie*radie;
 		
-		System.out.println("svar " + area); //cm^2
+		System.out.println("svar " + area + "cm^2"); //printar "svar " följt av arean i cm^2
 		
 		
 				
