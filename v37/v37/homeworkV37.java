@@ -26,11 +26,13 @@ public class homeworkV37 {
 		
 		System.out.println("\nVilken stad bor du i?");
 		
-		String stad = input.nextLine();
+		String city = input.nextLine();
 		
 		System.out.println("\nVad är ditt telefonnummer?");
 		
-		String telefon = input.nextLine();
+		String phone = input.nextLine();
+		
+		System.out.println("\n" + "Information:" + "\n" + "Namn:	" + name + "\n" + "Ålder:	" + age + "\n" + "Adress:	" + adress + "\n" + "	" + postn + " "+ city + "\n" + "Telefon:" + phone);
 		
 
 	}
