@@ -32,9 +32,10 @@ public class homeworkV37 {
 		
 		String phone = input.nextLine();
 		
-		System.out.println("\n" + "Information:" + "\n" + "Namn:	" + name + "\n" + "Ålder:	" + age + "\n" + "Adress:	" + adress + "\n" + "	" + postn + " "+ city + "\n" + "Telefon:" + phone);
+		System.out.println	("\n" + "Information:" + "\n" + "Namn:	" + name + "\n" 
+							+ "Ålder:	" + age + "\n" + "Adress:	" + adress + "\n" + 
+							"	" + postn + " "+ city + "\n" + "Telefon:" + phone);
 		
-
 	}
 
 }
