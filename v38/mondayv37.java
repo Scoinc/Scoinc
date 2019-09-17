@@ -5,7 +5,6 @@ public class mondayv37 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		boolean again = true;	//Jag orkar inte, ignorera denna
 		int age = 1;
 		
 		Scanner input = new Scanner(System.in);
