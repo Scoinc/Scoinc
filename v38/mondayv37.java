@@ -1,17 +1,16 @@
-import java.util.Scanner;
+import java.util.Scanner; //Scanner import
 
 public class mondayv37 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-		int age = 1;
+		int age = 0; //redundant number
 		
-		Scanner input = new Scanner(System.in);
+		Scanner input = new Scanner(System.in); //Scanner
 		
 		System.out.println("hur gammal du?");
 		
-		age = input.nextInt();
+		age = input.nextInt(); //läser av svaret in i "age"
 		
 		if (age >= 18) {
 		System.out.println("myndig man");
