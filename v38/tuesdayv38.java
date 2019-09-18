@@ -15,7 +15,7 @@ public class tuesdayv38 {
 		
 		System.out.println("Skriv 5 tal");
 		
-		tal1 = input.nextInt();
+		tal1 = input.nextInt(); //Lägger skrivna tal in i variablar
 		
 		tal2 = input.nextInt();
 		
@@ -25,7 +25,7 @@ public class tuesdayv38 {
 		
 		tal5 = input.nextInt();
 		
-		double mid = (tal1+tal2+tal3+tal4+tal5); //medelvärde
+		double mid = (tal1+tal2+tal3+tal4+tal5); //för någon anledning fungerar det inte att ha som bara en variabel
 		double mid2 = mid/5;
 		
 		if(tal1 >= tal2 && tal1 >= tal3 && tal1 >= tal4 && tal1 >= tal5){
@@ -43,6 +43,8 @@ public class tuesdayv38 {
 		else if(tal5 >= tal1 && tal5 >= tal2 && tal5 >= tal3 && tal5 >= tal4){
 		System.out.println("högst tal: "+tal5);
 		}
+		//Printar högst tal
+		
 		
 		if(tal1 <= tal2 && tal1 <= tal3 && tal1 <= tal4 && tal1 <= tal5){
 		System.out.println("lägst tal: "+tal1);
@@ -59,10 +61,10 @@ public class tuesdayv38 {
 		else if(tal5 <= tal1 && tal5 <= tal2 && tal5 <= tal3 && tal5 <= tal4){
 		System.out.println("lägst tal: "+tal5);
 		}
-		
+		//Printar lägst tal
 	
 		
-		System.out.println("Medelvärde: "+mid2);
+		System.out.println("Medelvärde: "+mid2); //Printar medelvärde
 	}
 
 }
