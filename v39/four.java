@@ -14,10 +14,10 @@ public class four {
 		
 		tal = input.nextInt();
 		
-		for (int i = 0; i < tal*10;) {
-			times++;
-			tal = i*times;
+		for (int i = tal; i < tal*10;) {
+			i = tal*times;
 			System.out.println(i);
+			times++;
 		}
 	}
 }
