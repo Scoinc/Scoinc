@@ -8,14 +8,14 @@ public class timeloop {
 		// TODO Auto-generated method stub
 
 		int N = 0;
-		
+
 		Scanner input = new Scanner(System.in);
-		
-		//System.out.println("Skriv ett tal 1-100");
-		
+
+		// System.out.println("Skriv ett tal 1-100");
+
 		N = input.nextInt();
-		
-		for (int i = 1;i <= N; i++) {
+
+		for (int i = 1; i <= N; i++) {
 			System.out.println(i + " Abracadabra");
 		}
 	}

@@ -16,7 +16,7 @@ public class Quadrant {
 		tal2 = input.nextInt();
 
 		if (tal1 >= 0 && tal2 >= 0) {
-			System.out.println("1"); 
+			System.out.println("1");
 		}
 
 		else if (tal1 <= 0 && tal2 >= 0) {
@@ -29,7 +29,7 @@ public class Quadrant {
 
 		else if (tal1 >= 0 && tal2 <= 0) {
 			System.out.println("4");
-		} 
+		}
 	}
 
 }
