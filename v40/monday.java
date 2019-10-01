@@ -40,8 +40,8 @@ public class monday {
 			else if (turn % 3 == 2) {
 				System.out.println("Gabbes tur");
 			}
-			
-			if(turn >= 100) {
+
+			if (turn >= 100) {
 				break;
 			}
 		}
