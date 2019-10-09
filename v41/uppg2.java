@@ -6,9 +6,20 @@ public class uppg2 {
 		// TODO Auto-generated method stub
 
 		Scanner sc = new Scanner(System.in);
+		
+		long digit;
+		long sum = 0;
+		
+		System.out.println("Skriv ett heltal:");
+		long number = sc.nextLong();
 
-		int tal = sc.nextInt();
-
+		while (number != 0) {
+			
+			digit = number % 10;
+			sum += digit;
+			number = number/10;
+		}
+		System.out.println(sum);
 	}
 
 }
