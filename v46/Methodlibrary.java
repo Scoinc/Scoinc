@@ -1,55 +1,79 @@
 import java.util.Scanner;
 
 public class Methodlibrary {
-	double g = 9.82;
-
 	public static void main(String[] args) {
-		FarenheitToKelvin();
-		KelvinToCelcius();
-		Velocity();
-		Kinetic();
-		Potential();
-		Delta();
-		Paparazzi();
-		Pr0g();
-		svTime();
-		Work();
-		vth();
-		svtr();
-	}
 
-	public static void FarenheitToKelvin() {
-		System.out.println("Skriv farenheit:");
 		Scanner sc = new Scanner(System.in);
-		double farenheit = sc.nextDouble();
-		double celcius = (farenheit - 32) / 1.8;
-		double kelvin = celcius + 273.15;
-		System.out.println("Det blir " + kelvin + " grader kelvin. \n");
-	}
 
-	public static void KelvinToCelcius() {
-		Scanner sc = new Scanner(System.in);
+		System.out.println("Skriv fahrenheit:");
+		double fahrenheit = sc.nextDouble();
+		System.out.println("Det blir " + (FahrenheitToKelvin(fahrenheit)) + " grader kelvin. \n");
+		// Farenheit to kelvin
+
 		System.out.println("Skriv kelvin:");
 		double kelvin = sc.nextDouble();
-		double celcius = kelvin - 273.15;
-		System.out.println("Det blir " + celcius + " grader celcius. \n");
-	}
+		System.out.println("Det blir " + (KelvinToCelcius(kelvin)) + " grader celcius. \n");
+		// Kelvin to celcius
 
-	public static void Velocity() {
-		Scanner sc = new Scanner(System.in);
 		System.out.println("Skriv km/h");
 		double kmh = sc.nextDouble();
-		double mps = kmh / 3.6;
-		System.out.println("Det blir " + mps + " meter per sekund: \n");
-	}
+		System.out.println("Det blir " + (Velocity(kmh)) + " meter per sekund: \n");
+		// Omvandlar km/h till m/s
 
-	public static void Kinetic() {
-		Scanner sc = new Scanner(System.in);
 		System.out.println("Skriv massa och hastighet:");
 		double mass = sc.nextDouble();
 		double velocity = sc.nextDouble();
+		System.out.println("Objektet har en kinetisk energi av " + (Kinetic(mass, velocity)) + "\n");
+		// Räknar ut kinetisk energi när given massa och hastighet
+
+		Potential();
+		// Räknar ut potensiell energi när given massa och höjd
+
+		Delta();
+		// Räknar ut medelvärdet av 3 givna nummer
+
+		Paparazzi();
+		// Ändrar strängen "PaParaZZi" till "paparazzi"
+
+		Pr0g();
+		/*
+		 * Ändrar strängen "Jag vill bli godkänd i programmering! <3" till JAG VILL BLI
+		 * G0DKÄND I PR0GRAMMERING! <3
+		 */
+
+		svTime();
+		// Räknar ut tid passerat när given en distans och medelhastighet
+
+		Work();
+		// Räknar ut arbete utfört när given en kraft och distans
+
+		vth();
+		//
+
+		svtr();
+		// Räknar ut radien av en sfär med en given volym
+
+	}
+
+	public static double FahrenheitToKelvin(double fahrenheit) {
+		double celcius = (fahrenheit - 32) / 1.8;
+		double kelvin = celcius + 273.15;
+		return kelvin;
+	}
+
+	public static double KelvinToCelcius(double kelvin) {
+		double celcius = kelvin - 273.15;
+		return celcius;
+	}
+
+	public static double Velocity(double kmh) {
+		double mps = kmh / 3.6;
+		return mps;
+	}
+
+	public static double Kinetic(double mass, double velocity) {
 		double kinetic = mass * velocity;
-		System.out.println("Objektet har en kinetisk energi av " + kinetic + "\n");
+		return kinetic;
 	}
 
 	public static void Potential() {
@@ -98,16 +122,16 @@ public class Methodlibrary {
 		double work = force * distance;
 		System.out.println("Du använde " + work + " enheter av kraft \n");
 	}
-	
+
 	public static void vth() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Skriv hastighet av objekt");
 		double V = sc.nextDouble();
-		double vth = 000000;
+		double vth = 0;
 	}
-	
+
 	public static void svtr() {
 		Scanner sc = new Scanner(System.in);
-		
+
 	}
 }
