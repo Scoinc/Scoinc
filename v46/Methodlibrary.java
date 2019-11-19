@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Methodlibrary {
 	public static void main(String[] args) {
 
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Skriv fahrenheit:");
@@ -26,33 +27,64 @@ public class Methodlibrary {
 		System.out.println("Objektet har en kinetisk energi av " + (Kinetic(mass, velocity)) + "\n");
 		// Räknar ut kinetisk energi när given massa och hastighet
 
-		Potential();
+		System.out.println("Skriv massa och höjd: \n");
+		double mass2 = sc.nextDouble();
+		double height = sc.nextDouble();
+		System.out.println("Objektet har en potensiell energi på " + (Potential(mass2, height)) + "\n");
 		// Räknar ut potensiell energi när given massa och höjd
 
-		Delta();
+		System.out.println("Skriv 3 nummer:");
+		double x = sc.nextDouble();
+		double y = sc.nextDouble();
+		double z = sc.nextDouble();
+		System.out.println("Medelvärdet är " + (Delta(x, y, z)) + "\n");
 		// Räknar ut medelvärdet av 3 givna nummer
 
-		Paparazzi();
+		String word = "PaParaZZi";
+		System.out.println((Paparazzi(word)) + "\n");
 		// Ändrar strängen "PaParaZZi" till "paparazzi"
 
-		Pr0g();
+		String word2 = "Jag vill bli godkännd i programmering! <3";
+		System.out.println((Pr0g(word2)) + "\n");
 		/*
 		 * Ändrar strängen "Jag vill bli godkänd i programmering! <3" till JAG VILL BLI
 		 * G0DKÄND I PR0GRAMMERING! <3
 		 */
 
-		svTime();
+		System.out.println("Skriv hur långt du gick hur snabbt:");
+		double distance = sc.nextDouble();
+		double velocity2 = sc.nextDouble();
+		System.out.println("Det tog " + (svTime(distance, velocity2)) + " enheter av tid \n");
 		// Räknar ut tid passerat när given en distans och medelhastighet
 
-		Work();
+		System.out.println("Skriv hur mycket kraft du använde hur långt:");
+		double force = sc.nextDouble();
+		double distance2 = sc.nextDouble();
+		System.out.println("Du använde " + (Work(force, distance2)) + " enheter av kraft \n");
 		// Räknar ut arbete utfört när given en kraft och distans
 
-		vth();
-		//
+		System.out.println("Skriv hastighet av objekt");
+		double V = sc.nextDouble();
+		System.out.println("Objektet får en höjd av " + (vth(V)) + " höjdenheter. \n");
+		// Känns riktigt onödig men delar hastighet på 2 för att få ut höjd
 
-		svtr();
+		System.out.println("Skriv volymen på sfären");
+		double volume = sc.nextDouble();
+		System.out.println("Sfären har en radie på " + (svtr(volume)) + " längdenheter \n");
 		// Räknar ut radien av en sfär med en given volym
 
+		System.out.println("Hur mycket rp har du köpt på det senaste?");
+		double rp = sc.nextDouble();
+		System.out.println("Det kostade dig " + (rptocash(rp)) + " euro om du köpte det dyraste packet \n");
+		// Räknar ut hur mycket det har kostat dig att köpa ett antal RP (league of
+		// legends 'riot points')
+
+		System.out.println("Hur mycket har du spelat ett spel och hur mycket kostade det?");
+		double playtime = sc.nextDouble();
+		double money = sc.nextDouble();
+		System.out.println("Spelet har kostat dig " + (cashtoplaytime(playtime, money)) + "pengar per enhet av tid");
+		// Räknar ut kostnaden per timma av ett spel givet hur mycket du har spelat det
+		// och hur mycket du har spelat det
 	}
 
 	public static double FahrenheitToKelvin(double fahrenheit) {
@@ -76,62 +108,55 @@ public class Methodlibrary {
 		return kinetic;
 	}
 
-	public static void Potential() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Skriv massa och höjd: \n");
-		double mass = sc.nextDouble();
-		double height = sc.nextDouble();
-		double potential = mass * height * 9.82;
-		System.out.println("Objektet har en potentiell energi av " + potential + "\n");
+	public static double Potential(double mass2, double height) {
+
+		double potential = mass2 * height * 9.82;
+		return potential;
 	}
 
-	public static void Delta() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Skriv 3 nummer:");
-		double x = sc.nextDouble();
-		double y = sc.nextDouble();
-		double z = sc.nextDouble();
+	public static double Delta(double x, double y, double z) {
 		double svar = (x + y + z) / 3;
-		System.out.println("medelvärdet är " + svar + "\n");
+		return svar;
 	}
 
-	public static void Paparazzi() {
-		String word = "PaParaZZi";
-		System.out.println((word.toLowerCase()) + "\n");
+	public static String Paparazzi(String word) {
+		word = word.toLowerCase();
+		return word;
 	}
 
-	public static void Pr0g() {
-		String word = "Jag vill bli godkännd i programmering! <3";
-		System.out.println(word.toUpperCase().replace("o", "0") + "\n");
+	public static String Pr0g(String word2) {
+		word2 = word2.toUpperCase().replace("o", "0");
+		return word2;
+
 	}
 
-	public static void svTime() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Skriv hur långt du gick hur snabbt:");
-		double distance = sc.nextDouble();
-		double velocity = sc.nextDouble();
-		double time = distance / velocity;
-		System.out.println("Det tog " + time + " enheter av tid \n");
+	public static double svTime(double distance, double velocity2) {
+		double time = distance / velocity2;
+		return time;
 	}
 
-	public static void Work() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Skriv hur mycket kraft du använde hur långt:");
-		double force = sc.nextDouble();
-		double distance = sc.nextDouble();
-		double work = force * distance;
-		System.out.println("Du använde " + work + " enheter av kraft \n");
+	public static double Work(double force, double distance2) {
+		double work = force * distance2;
+		return work;
 	}
 
-	public static void vth() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Skriv hastighet av objekt");
-		double V = sc.nextDouble();
-		double vth = 0;
+	public static double vth(double V) {
+		double vth = V / 2;
+		return vth;
 	}
 
-	public static void svtr() {
-		Scanner sc = new Scanner(System.in);
+	public static double svtr(double volume) {
+		double radius = Math.cbrt((3 * (volume / (4 * Math.PI))));
+		return radius;
+	}
 
+	public static double rptocash(double rp) {
+		double cash = rp / 144;
+		return cash;
+	}
+
+	public static double cashtoplaytime(double money, double playtime) {
+		double value = playtime / money;
+		return value;
 	}
 }
