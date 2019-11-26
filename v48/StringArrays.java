@@ -9,7 +9,7 @@ public class StringArrays {
 
 			for (int j = 0; j < namn.length; j++) {
 
-				
+				i += j;
 				System.out.println((i) + ". " + namn[j]);
 			}
 		}
