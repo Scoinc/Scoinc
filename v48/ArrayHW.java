@@ -115,7 +115,7 @@ public class ArrayHW {
 		System.out.println(eight);
 		System.out.println(nine);
 
-		//highest
+		// highest
 		if (zero >= one && zero >= two && zero >= three && zero >= four && zero >= five && zero >= six && zero >= seven
 				&& zero >= eight && zero >= nine) {
 			highest = 0;
@@ -148,8 +148,7 @@ public class ArrayHW {
 			highest = 9;
 		}
 
-		
-		//lowest
+		// lowest
 		if (zero <= one && zero <= two && zero <= three && zero <= four && zero <= five && zero <= six && zero <= seven
 				&& zero <= eight && zero <= nine) {
 			lowest = 0;
