@@ -24,7 +24,7 @@ public class ArrayHW {
 
 		System.out.println("Det finns " + tom(names) + " personer som heter tom i listan \n");
 
-		System.out.println(" ");
+		System.out.println("Det finns flest " + ammount(numbers) + "or \n");
 
 	}
 
@@ -57,119 +57,134 @@ public class ArrayHW {
 
 	public static int ammount(int[] numbers) {
 
-		int ammount = 0;
+		int highest = 0;
+		int lowest = 0;
+		int zero = 0;
+		int one = 0;
+		int two = 0;
+		int three = 0;
+		int four = 0;
+		int five = 0;
+		int six = 0;
+		int seven = 0;
+		int eight = 0;
+		int nine = 0;
+
 		for (int i = 0; i < numbers.length; i++) {
 
-			int zero = 0;
-			int one = 0;
-			int two = 0;
-			int three = 0;
-			int four = 0;
-			int five = 0;
-			int six = 0;
-			int seven = 0;
-			int eight = 0;
-			int nine = 0;
-
 			if (numbers[i] == 0) {
-				zero++;
+				zero += 1;
 			}
 			if (numbers[i] == 1) {
-				one++;
+				one += 1;
 			}
 			if (numbers[i] == 2) {
-				two++;
+				two += 1;
 			}
 			if (numbers[i] == 3) {
-				three++;
+				three += 1;
 			}
 			if (numbers[i] == 4) {
-				four++;
+				four += 1;
 			}
 			if (numbers[i] == 5) {
-				five++;
+				five += 1;
 			}
 			if (numbers[i] == 6) {
-				six++;
+				six += 1;
 			}
 			if (numbers[i] == 7) {
-				seven++;
+				seven += 1;
 			}
 			if (numbers[i] == 8) {
-				eight++;
+				eight += 1;
 			}
 			if (numbers[i] == 9) {
-				nine++;
-			}
-
-			if (zero >= one && zero >= two && zero >= three && zero >= four && zero >= five && zero >= six
-					&& zero >= seven && zero >= eight && zero >= nine) {
-				System.out.println("högst tal: " + zero);
-			}
-
-			else if (one >= zero && one >= two && one >= three && one >= four && one >= five && one >= six
-					&& one >= seven && one >= eight && one >= nine) {
-				System.out.println("högst tal: " + one);
-			} else if (two >= zero && two >= one && two >= three && two >= four && two >= five && two >= six
-					&& two >= seven && two >= eight && two >= nine) {
-				System.out.println("högst tal: " + two);
-			} else if (three >= zero && three >= two && three >= one && three >= four && three >= five && three >= six
-					&& three >= seven && three >= eight && three >= nine) {
-				System.out.println("högst tal: " + three);
-			} else if (four >= zero && four >= two && four >= three && four >= four && one >= five && four >= six
-					&& four >= seven && four >= eight && four >= nine) {
-				System.out.println("högst tal: " + four);
-			} else if (five >= zero && five >= two && five >= three && five >= four && five >= one && five >= six
-					&& five >= seven && five >= eight && five >= nine) {
-				System.out.println("högst tal: " + five);
-			} else if (six >= zero && six >= two && six >= three && six >= four && six >= five && six >= one
-					&& six >= seven && six >= eight && six >= nine) {
-				System.out.println("högst tal: " + six);
-			} else if (seven >= zero && seven >= two && seven >= three && seven >= four && seven >= five && seven >= six
-					&& seven >= seven && one >= eight && seven >= nine) {
-				System.out.println("högst tal: " + seven);
-			} else if (eight >= zero && eight >= two && eight >= three && eight >= four && eight >= five && eight >= six
-					&& eight >= seven && eight >= one && eight >= nine) {
-				System.out.println("högst tal: " + eight);
-			} else if (nine >= zero && nine >= two && nine >= three && nine >= four && nine >= five && nine >= six
-					&& nine >= seven && nine >= eight && nine >= one) {
-				System.out.println("högst tal: " + nine);
-			}
-
-			if (zero <= one && zero <= two && zero <= three && zero <= four && zero <= five && zero <= six
-					&& zero <= seven && zero <= eight && zero <= nine) {
-				System.out.println("lägst tal: " + zero);
-			}
-
-			else if (one <= zero && one <= two && one <= three && one <= four && one <= five && one <= six
-					&& one <= seven && one <= eight && one <= nine) {
-				System.out.println("lägst tal: " + one);
-			} else if (two <= zero && two <= one && two <= three && two <= four && two <= five && two <= six
-					&& two <= seven && two <= eight && two <= nine) {
-				System.out.println("lägst tal: " + two);
-			} else if (three <= zero && three <= two && three <= one && three <= four && three <= five && three <= six
-					&& three <= seven && three <= eight && three <= nine) {
-				System.out.println("lägst tal: " + three);
-			} else if (four <= zero && four <= two && four <= three && four <= four && one <= five && four <= six
-					&& four <= seven && four <= eight && four <= nine) {
-				System.out.println("lägst tal: " + four);
-			} else if (five <= zero && five <= two && five <= three && five <= four && five <= one && five <= six
-					&& five <= seven && five <= eight && five <= nine) {
-				System.out.println("lägst tal: " + five);
-			} else if (six <= zero && six <= two && six <= three && six <= four && six <= five && six <= one
-					&& six <= seven && six <= eight && six <= nine) {
-				System.out.println("lägst tal: " + six);
-			} else if (seven <= zero && seven <= two && seven <= three && seven <= four && seven <= five && seven <= six
-					&& seven <= seven && one <= eight && seven <= nine) {
-				System.out.println("lägst tal: " + seven);
-			} else if (eight <= zero && eight <= two && eight <= three && eight <= four && eight <= five && eight <= six
-					&& eight <= seven && eight <= one && eight <= nine) {
-				System.out.println("lägst tal: " + eight);
-			} else if (nine <= zero && nine <= two && nine <= three && nine <= four && nine <= five && nine <= six
-					&& nine <= seven && nine <= eight && nine <= one) {
-				System.out.println("lägst tal: " + nine);
+				nine += 1;
 			}
 		}
-		return ammount;
+
+		System.out.println(zero);
+		System.out.println(one);
+		System.out.println(two);
+		System.out.println(three);
+		System.out.println(four);
+		System.out.println(five);
+		System.out.println(six);
+		System.out.println(seven);
+		System.out.println(eight);
+		System.out.println(nine);
+
+		//highest
+		if (zero >= one && zero >= two && zero >= three && zero >= four && zero >= five && zero >= six && zero >= seven
+				&& zero >= eight && zero >= nine) {
+			highest = 0;
+		} else if (one >= zero && one >= two && one >= three && one >= four && one >= five && one >= six && one >= seven
+				&& one >= eight && one >= nine) {
+			highest = 1;
+		} else if (two >= zero && two >= one && two >= three && two >= four && two >= five && two >= six && two >= seven
+				&& two >= eight && two >= nine) {
+			highest = 2;
+		} else if (three >= zero && three >= two && three >= one && three >= four && three >= five && three >= six
+				&& three >= seven && three >= eight && three >= nine) {
+			highest = 3;
+		} else if (four >= zero && four >= two && four >= three && four >= five && one >= five && four >= six
+				&& four >= seven && four >= eight && four >= nine) {
+			highest = 4;
+		} else if (five >= zero && five >= two && five >= three && five >= four && five >= one && five >= six
+				&& five >= seven && five >= eight && five >= nine) {
+			highest = 5;
+		} else if (six >= zero && six >= two && six >= three && six >= four && six >= five && six >= one && six >= seven
+				&& six >= eight && six >= nine) {
+			highest = 6;
+		} else if (seven >= zero && seven >= two && seven >= three && seven >= four && seven >= five && seven >= six
+				&& seven >= one && one >= eight && seven >= nine) {
+			highest = 7;
+		} else if (eight >= zero && eight >= two && eight >= three && eight >= four && eight >= five && eight >= six
+				&& eight >= seven && eight >= one && eight >= nine) {
+			highest = 8;
+		} else if (nine >= zero && nine >= two && nine >= three && nine >= four && nine >= five && nine >= six
+				&& nine >= seven && nine >= eight && nine >= one) {
+			highest = 9;
+		}
+
+		
+		//lowest
+		if (zero <= one && zero <= two && zero <= three && zero <= four && zero <= five && zero <= six && zero <= seven
+				&& zero <= eight && zero <= nine) {
+			lowest = 0;
+		}
+
+		else if (one <= zero && one <= two && one <= three && one <= four && one <= five && one <= six && one <= seven
+				&& one <= eight && one <= nine) {
+			lowest = 1;
+		} else if (two <= zero && two <= one && two <= three && two <= four && two <= five && two <= six && two <= seven
+				&& two <= eight && two <= nine) {
+			lowest = 2;
+		} else if (three <= zero && three <= two && three <= one && three <= four && three <= five && three <= six
+				&& three <= seven && three <= eight && three <= nine) {
+			lowest = 3;
+		} else if (four <= zero && four <= two && four <= three && four <= four && one <= five && four <= six
+				&& four <= seven && four <= eight && four <= nine) {
+			lowest = 4;
+		} else if (five <= zero && five <= two && five <= three && five <= four && five <= one && five <= six
+				&& five <= seven && five <= eight && five <= nine) {
+			lowest = 5;
+		} else if (six <= zero && six <= two && six <= three && six <= four && six <= five && six <= one && six <= seven
+				&& six <= eight && six <= nine) {
+			lowest = 6;
+		} else if (seven <= zero && seven <= two && seven <= three && seven <= four && seven <= five && seven <= six
+				&& seven <= seven && one <= eight && seven <= nine) {
+			lowest = 7;
+		} else if (eight <= zero && eight <= two && eight <= three && eight <= four && eight <= five && eight <= six
+				&& eight <= seven && eight <= one && eight <= nine) {
+			lowest = 8;
+		} else if (nine <= zero && nine <= two && nine <= three && nine <= four && nine <= five && nine <= six
+				&& nine <= seven && nine <= eight && nine <= one) {
+			lowest = 9;
+		}
+		System.out.println(lowest);
+		System.out.println(highest);
+		return highest;
 	}
 }
