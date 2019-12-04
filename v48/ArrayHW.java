@@ -20,11 +20,26 @@ public class ArrayHW {
 				"Ophelia", "Alesha", "Mafalda", "Flor", "Kelsi", "Autumn", "Sondra", "Pasty", "Jacquelyne", "Benjamin",
 				"Emmie", "Mickie", "Lang", "Jamee", "Felice", "Daniella", "Carola", "Nathalie", "Genevive" };
 
-		System.out.println("Det finns " + sevens(numbers) + " sjuor \n");
+		System.out.println("Det finns " + sevens(numbers) + " sjuor \n"); //1
 
-		System.out.println("Det finns " + tom(names) + " personer som heter tom i listan \n");
+		System.out.println("Det finns " + tom(names) + " personer som heter tom i listan \n"); //2
 
-		System.out.println("Det finns flest " + ammount(numbers) + "or \n");
+		System.out.println("Det finns flest " + most(numbers) + "or \n"); //3 most
+		System.out.println("Det finns minst " + least(numbers) + "or \n"); //3 least
+		
+		System.out.println("Drusilla är på den " + drusilla(names) + " platsen \n"); //4
+		
+		System.out.println("Summan av alla jämna tal blir " + summa(numbers) + "\n"); //5
+
+		System.out.println(anTal(numbers) + "\n"); //6
+
+		System.out.println(L(names) + " Namn börjar på bokstaven L \n"); //7
+
+		System.out.println(femB(names) + " Namn är 5 bokstäver långa \n"); //8
+
+		System.out.println("Det finns " + unique(names) + " unika namn"); //9
+		
+		//System.out.println(); uppgift 10
 
 	}
 
@@ -55,10 +70,68 @@ public class ArrayHW {
 		return tom;
 	}
 
-	public static int ammount(int[] numbers) {
+	public static int least(int[] numbers) {
+		int least = 0;
+		int ammount;
+		int min = 99999;
+		for (int i = 0; i < 10; i++) {
+			ammount = 0;
+			for (int j = 0; j < numbers.length; j++) {
+				if (numbers[j] == i) {
+					ammount++;
+				}
+			}
+			if (ammount < min) {
+				least = i;
+				min = ammount;
+			}
 
-		int highest = 0;
-		int lowest = 0;
+		}
+		return least;
+	}
+
+	public static int most(int[] numbers) {
+		int flest = 0;
+		int ammount;
+		int max = 0;
+		for (int i = 0; i < 10; i++) {
+			ammount = 0;
+			for (int j = 0; j < numbers.length; j++) {
+				if (numbers[j] == i) {
+					ammount++;
+				}
+			}
+			if (ammount > max) {
+				flest = i;
+				max = ammount;
+			}
+
+		}
+		return flest;
+	}
+
+	public static int drusilla(String[] names) {
+		int drusilla = 0;
+		for (int i = 0; i < names.length; i++) {
+			if (names[i].contains("Drusilla")) {
+				drusilla = i;
+				break;
+			}
+		}
+		return drusilla;
+	}
+
+	public static int summa(int[] numbers) {
+		int sum = 0;
+		for (int i = 0; i < numbers.length; i++) {
+			if (numbers[i] % 2 == 0) {
+				sum += numbers[i];
+			}
+		}
+		return sum;
+	}
+
+	public static String anTal(int[] numbers) {
 		int zero = 0;
 		int one = 0;
 		int two = 0;
@@ -69,121 +142,71 @@ public class ArrayHW {
 		int seven = 0;
 		int eight = 0;
 		int nine = 0;
-
 		for (int i = 0; i < numbers.length; i++) {
-
 			if (numbers[i] == 0) {
-				zero += 1;
+				zero++;
+			} else if (numbers[i] == 1) {
+				one++;
+			} else if (numbers[i] == 2) {
+				two++;
+			} else if (numbers[i] == 3) {
+				three++;
+			} else if (numbers[i] == 4) {
+				four++;
+			} else if (numbers[i] == 5) {
+				five++;
+			} else if (numbers[i] == 6) {
+				six++;
+			} else if (numbers[i] == 7) {
+				seven++;
+			} else if (numbers[i] == 8) {
+				eight++;
+			} else {
+				nine++;
 			}
-			if (numbers[i] == 1) {
-				one += 1;
-			}
-			if (numbers[i] == 2) {
-				two += 1;
-			}
-			if (numbers[i] == 3) {
-				three += 1;
-			}
-			if (numbers[i] == 4) {
-				four += 1;
-			}
-			if (numbers[i] == 5) {
-				five += 1;
-			}
-			if (numbers[i] == 6) {
-				six += 1;
-			}
-			if (numbers[i] == 7) {
-				seven += 1;
-			}
-			if (numbers[i] == 8) {
-				eight += 1;
-			}
-			if (numbers[i] == 9) {
-				nine += 1;
+		}
+		String antal = "Antal nollor: " + zero + "\nAntal ettor: " + one + "\nAntal tvåor: " + two + "\nAntal treor: "
+				+ three + "\nAntal fyror: " + four + "\nAntal femmor: " + five + "\nAntal sexor: " + six + "\nAntal sjuor: "
+				+ seven + "\nAntal åttor: " + eight + "\nAntal nior: " + nine;
+		return antal;
+	}
+
+	public static int L(String[] names) {
+		int L = 0;
+		for (int i = 0; i < names.length; i++) {
+			if (names[i].contains("L")) {
+				L++;
 			}
 		}
 
-		System.out.println(zero);
-		System.out.println(one);
-		System.out.println(two);
-		System.out.println(three);
-		System.out.println(four);
-		System.out.println(five);
-		System.out.println(six);
-		System.out.println(seven);
-		System.out.println(eight);
-		System.out.println(nine);
+		return L;
+	}
 
-		// highest
-		if (zero >= one && zero >= two && zero >= three && zero >= four && zero >= five && zero >= six && zero >= seven
-				&& zero >= eight && zero >= nine) {
-			highest = 0;
-		} else if (one >= zero && one >= two && one >= three && one >= four && one >= five && one >= six && one >= seven
-				&& one >= eight && one >= nine) {
-			highest = 1;
-		} else if (two >= zero && two >= one && two >= three && two >= four && two >= five && two >= six && two >= seven
-				&& two >= eight && two >= nine) {
-			highest = 2;
-		} else if (three >= zero && three >= two && three >= one && three >= four && three >= five && three >= six
-				&& three >= seven && three >= eight && three >= nine) {
-			highest = 3;
-		} else if (four >= zero && four >= two && four >= three && four >= five && one >= five && four >= six
-				&& four >= seven && four >= eight && four >= nine) {
-			highest = 4;
-		} else if (five >= zero && five >= two && five >= three && five >= four && five >= one && five >= six
-				&& five >= seven && five >= eight && five >= nine) {
-			highest = 5;
-		} else if (six >= zero && six >= two && six >= three && six >= four && six >= five && six >= one && six >= seven
-				&& six >= eight && six >= nine) {
-			highest = 6;
-		} else if (seven >= zero && seven >= two && seven >= three && seven >= four && seven >= five && seven >= six
-				&& seven >= one && one >= eight && seven >= nine) {
-			highest = 7;
-		} else if (eight >= zero && eight >= two && eight >= three && eight >= four && eight >= five && eight >= six
-				&& eight >= seven && eight >= one && eight >= nine) {
-			highest = 8;
-		} else if (nine >= zero && nine >= two && nine >= three && nine >= four && nine >= five && nine >= six
-				&& nine >= seven && nine >= eight && nine >= one) {
-			highest = 9;
+	public static int femB(String[] names) {
+		int five = 0;
+		for (int i = 0; i < names.length; i++) {
+			if (names[i].length() == 5) {
+				five++;
+			}
 		}
+		return five;
+	}
 
-		// lowest
-		if (zero <= one && zero <= two && zero <= three && zero <= four && zero <= five && zero <= six && zero <= seven
-				&& zero <= eight && zero <= nine) {
-			lowest = 0;
-		}
+	static int unique(String[] names) {
+		int unique = 1;
 
-		else if (one <= zero && one <= two && one <= three && one <= four && one <= five && one <= six && one <= seven
-				&& one <= eight && one <= nine) {
-			lowest = 1;
-		} else if (two <= zero && two <= one && two <= three && two <= four && two <= five && two <= six && two <= seven
-				&& two <= eight && two <= nine) {
-			lowest = 2;
-		} else if (three <= zero && three <= two && three <= one && three <= four && three <= five && three <= six
-				&& three <= seven && three <= eight && three <= nine) {
-			lowest = 3;
-		} else if (four <= zero && four <= two && four <= three && four <= four && one <= five && four <= six
-				&& four <= seven && four <= eight && four <= nine) {
-			lowest = 4;
-		} else if (five <= zero && five <= two && five <= three && five <= four && five <= one && five <= six
-				&& five <= seven && five <= eight && five <= nine) {
-			lowest = 5;
-		} else if (six <= zero && six <= two && six <= three && six <= four && six <= five && six <= one && six <= seven
-				&& six <= eight && six <= nine) {
-			lowest = 6;
-		} else if (seven <= zero && seven <= two && seven <= three && seven <= four && seven <= five && seven <= six
-				&& seven <= seven && one <= eight && seven <= nine) {
-			lowest = 7;
-		} else if (eight <= zero && eight <= two && eight <= three && eight <= four && eight <= five && eight <= six
-				&& eight <= seven && eight <= one && eight <= nine) {
-			lowest = 8;
-		} else if (nine <= zero && nine <= two && nine <= three && nine <= four && nine <= five && nine <= six
-				&& nine <= seven && nine <= eight && nine <= one) {
-			lowest = 9;
+		for (int i = 1; i < names.length; i++) {
+			int j = 0;
+			for (j = 0; j < i; j++)
+
+				if (names[i] == names[j]) {
+					break;
+				}
+
+			if (i == j)
+				unique++;
 		}
-		System.out.println(lowest);
-		System.out.println(highest);
-		return highest;
+		return unique;
 	}
 }
+
