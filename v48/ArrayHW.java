@@ -20,26 +20,26 @@ public class ArrayHW {
 				"Ophelia", "Alesha", "Mafalda", "Flor", "Kelsi", "Autumn", "Sondra", "Pasty", "Jacquelyne", "Benjamin",
 				"Emmie", "Mickie", "Lang", "Jamee", "Felice", "Daniella", "Carola", "Nathalie", "Genevive" };
 
-		System.out.println("Det finns " + sevens(numbers) + " sjuor \n"); //1
+		System.out.println("Det finns " + sevens(numbers) + " sjuor \n"); // 1
 
-		System.out.println("Det finns " + tom(names) + " personer som heter tom i listan \n"); //2
+		System.out.println("Det finns " + tom(names) + " personer som heter tom i listan \n"); // 2
 
-		System.out.println("Det finns flest " + most(numbers) + "or \n"); //3 most
-		System.out.println("Det finns minst " + least(numbers) + "or \n"); //3 least
-		
-		System.out.println("Drusilla är på den " + drusilla(names) + " platsen \n"); //4
-		
-		System.out.println("Summan av alla jämna tal blir " + summa(numbers) + "\n"); //5
+		System.out.println("Det finns flest " + most(numbers) + "or \n"); // 3 most
+		System.out.println("Det finns minst " + least(numbers) + "or \n"); // 3 least
 
-		System.out.println(anTal(numbers) + "\n"); //6
+		System.out.println("Drusilla är på den " + drusilla(names) + " platsen \n"); // 4
 
-		System.out.println(L(names) + " Namn börjar på bokstaven L \n"); //7
+		System.out.println("Summan av alla jämna tal blir " + summa(numbers) + "\n"); // 5
 
-		System.out.println(femB(names) + " Namn är 5 bokstäver långa \n"); //8
+		System.out.println(anTal(numbers) + "\n"); // 6
 
-		System.out.println("Det finns " + unique(names) + " unika namn"); //9
-		
-		//System.out.println(); uppgift 10
+		System.out.println(L(names) + " Namn börjar på bokstaven L \n"); // 7
+
+		System.out.println(femB(names) + " Namn är 5 bokstäver långa \n"); // 8
+
+		System.out.println("Det finns " + unique(names) + " unika namn"); // 9
+
+		// System.out.println(); uppgift 10
 
 	}
 
@@ -166,8 +166,8 @@ public class ArrayHW {
 			}
 		}
 		String antal = "Antal nollor: " + zero + "\nAntal ettor: " + one + "\nAntal tvåor: " + two + "\nAntal treor: "
-				+ three + "\nAntal fyror: " + four + "\nAntal femmor: " + five + "\nAntal sexor: " + six + "\nAntal sjuor: "
-				+ seven + "\nAntal åttor: " + eight + "\nAntal nior: " + nine;
+				+ three + "\nAntal fyror: " + four + "\nAntal femmor: " + five + "\nAntal sexor: " + six
+				+ "\nAntal sjuor: " + seven + "\nAntal åttor: " + eight + "\nAntal nior: " + nine;
 		return antal;
 	}
 
@@ -209,4 +209,3 @@ public class ArrayHW {
 		return unique;
 	}
 }
-
