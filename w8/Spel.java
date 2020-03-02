@@ -5,15 +5,17 @@ public class Spel {
 	public static void main(String[] args) {
 		// Jag vet inte hur man ska få det att starta om annars
 		game();
-		//Meddelandet skickas flera gånger om man startar om om det inte är här
+		// Meddelandet skickas flera gånger om man startar om om det inte är här
 		System.out.println("\nKom tillbaka någon gång");
+
+		// Fan, jag skulle bara kunna ha använt while(start)
 	}
 
 	public static int game() {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 
-		//Resettar/definerar alla värden
+		// Resettar/definerar alla värden
 		int number = 0;
 		int guess = 0;
 		boolean alive = true;
@@ -54,7 +56,7 @@ public class Spel {
 		case 4:
 			// Medan Jag inte gillar att använda try/catch överallt så kan Jag ingen bättre
 			// metod för att inte få det att krasha
-			//Custom number generator
+			// Custom number generator
 			try {
 				System.out.println("\nSkriv ett maxtal att gissa\n");
 				int max = sc.nextInt();
@@ -76,8 +78,8 @@ public class Spel {
 		System.out.println("Gissa nummret\n");
 
 		while (alive) {
-			
-			//livsystem
+
+			// livsystem
 			if (choice == 3 || choice == 4) {
 				System.out.println("Du har " + (lives) + " liv kvar\n");
 				lives--;
@@ -103,8 +105,7 @@ public class Spel {
 				// olika grattismeddelanden för lätt/medium och svårt/custom
 				if (choice == 1 || choice == 2) {
 					System.out.println("\nGrattis, du har rätt. Det tog " + (guesses + 1) + " gissningar");
-				}
-				else if (choice == 3 || choice == 4) {
+				} else if (choice == 3 || choice == 4) {
 					System.out.println("\nGrattis, du har vunnit med " + lives + " liv kvar");
 				}
 				break;
@@ -127,8 +128,7 @@ public class Spel {
 		// Om du ska starta om
 		restart();
 
-		// Helt redundant men har man en method som man vill starta om måste man göra
-		// någonting
+		// Helt redundant men den måste existera
 		return number;
 	}
 
