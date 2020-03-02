@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Spel {
 
 	public static void main(String[] args) {
-		// Jag vet inte hur man ska få det att starta om annars
 		game();
 		// Meddelandet skickas flera gånger om man startar om om det inte är här
 		System.out.println("\nKom tillbaka någon gång");
