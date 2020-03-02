@@ -100,7 +100,7 @@ public class Spel {
 			// Rätt eller fel nummer
 			if (guess == number) {
 
-				// olika grattismeddelanden för lätt/medium och svårt
+				// olika grattismeddelanden för lätt/medium och svårt/custom
 				if (choice == 1 || choice == 2) {
 					System.out.println("\nGrattis, du har rätt. Det tog " + (guesses + 1) + " gissningar");
 				}
