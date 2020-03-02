@@ -3,27 +3,30 @@ import java.util.Scanner;
 public class Spel {
 
 	public static void main(String[] args) {
-
 		// Jag vet inte hur man ska få det att starta om annars
 		game();
+		//Meddelandet skickas flera gånger om man startar om om det inte är här
+		System.out.println("\nKom tillbaka någon gång");
 	}
 
 	public static int game() {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 
+		//Resettar/definerar alla värden
 		int number = 0;
 		int guess = 0;
 		boolean alive = true;
 		int lives = 5;
-		int guesses = 0;
+		long guesses = 0;
 
 		// Val av svårighetsgrad med switch case under
 		int choice;
-		System.out.println("Välkommen, välj svårighetsgrad:\n");
+		System.out.println("\nVälkommen, välj svårighetsgrad:\n");
 		System.out.println("1 = Lätt");
 		System.out.println("2 = Medel");
-		System.out.println("3 = Svårt\n");
+		System.out.println("3 = Svårt");
+		System.out.println("4 = Eget intervall\n");
 
 		// Try catch för att det ska defaulta till lätt om det inte skrivs en int
 		try {
@@ -48,17 +51,34 @@ public class Spel {
 			// hard number generator
 			number = (int) (Math.random() * 1000);
 			break;
+		case 4:
+			// Medan Jag inte gillar att använda try/catch överallt så kan Jag ingen bättre
+			// metod för att inte få det att krasha
+			//Custom number generator
+			try {
+				System.out.println("\nSkriv ett maxtal att gissa\n");
+				int max = sc.nextInt();
+				number = (int) (Math.random() * max + 1);
+				System.out.println("\nSkriv antal liv du vill ha");
+				lives = sc.nextInt();
+				break;
+			} catch (Exception e) {
+				number = (int) (Math.random() * 1000);
+				break;
+			}
 
 		default:
 			System.out.println("\nnej\n");
 			break;
 		}
 
-		// Spel börjar
+		// Gissningarna börjar här
 		System.out.println("Gissa nummret\n");
 
 		while (alive) {
-			if (choice == 3) {
+			
+			//livsystem
+			if (choice == 3 || choice == 4) {
 				System.out.println("Du har " + (lives) + " liv kvar\n");
 				lives--;
 				// Förlust när slut på liv
@@ -77,14 +97,14 @@ public class Spel {
 				break;
 			}
 
-			// Rätt eller fel med
+			// Rätt eller fel nummer
 			if (guess == number) {
 
 				// olika grattismeddelanden för lätt/medium och svårt
 				if (choice == 1 || choice == 2) {
-					System.out.println("\nGrattis, du har rätt. Det tog " + (guesses+1) + " gissningar");
+					System.out.println("\nGrattis, du har rätt. Det tog " + (guesses + 1) + " gissningar");
 				}
-				if (choice == 3) {
+				else if (choice == 3 || choice == 4) {
 					System.out.println("\nGrattis, du har vunnit med " + lives + " liv kvar");
 				}
 				break;
@@ -98,30 +118,45 @@ public class Spel {
 				guesses++;
 				System.out.println("\nDu har gissat " + guesses + " Gånger\n");
 			}
+
+			/*
+			 * Debugkod: System.out.println(number);
+			 */
 		}
 
+		// Om du ska starta om
+		restart();
+
+		// Helt redundant men har man en method som man vill starta om måste man göra
+		// någonting
+		return number;
+	}
+
+	public static int restart() {
+
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
 		System.out.println("\nVill du köra igen?\n 1 = ja\n 2 = nej");
 
+		int choice = 0;
 		// Try catch för att bokstäver inte ska crasha
 		try {
 			choice = sc.nextInt();
 		} catch (Exception e) {
 			choice = 2;
 		}
-
 		// Scuffed starta om
 		switch (choice) {
 		case 1:
 			game();
 
 		case 2:
-			System.out.println("\nKom tillbaka någon gång");
 			break;
 
 		default:
-			System.out.println("\nskriv ett riktigt svar nästa gång\n");
+			System.out.println("\nskriv ett riktigt svar nästa gång");
 			break;
 		}
-		return number;
+		return choice;
 	}
 }
