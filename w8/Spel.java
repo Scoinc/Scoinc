@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+//Den här koden är så hemsk Jag vill inte mer men Jag har redan skrivit den så det är för sent att ändra
 public class Spel {
 
 	public static void main(String[] args) {
