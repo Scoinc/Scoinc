@@ -103,7 +103,7 @@ public class Spel {
 				if (choice == 1 || choice == 2) {
 					System.out.println("\nGrattis, du har rätt. Det tog " + (guesses + 1) + " gissningar");
 				} else if (choice == 3 || choice == 4) {
-					System.out.println("\nGrattis, du har vunnit med " + (lives+1) + " liv kvar");
+					System.out.println("\nGrattis, du har vunnit med " + (lives + 1) + " liv kvar");
 				}
 				break;
 			} else if (guess > number) {
@@ -125,7 +125,8 @@ public class Spel {
 		// Om du ska starta om
 		restart();
 
-		// Helt redundant men den måste existera
+		// Helt redundant men den måste existera eftersom Jag inte använder en while
+		// loop som en smart person
 		return number;
 	}
 
@@ -154,6 +155,7 @@ public class Spel {
 			System.out.println("\nskriv ett riktigt svar nästa gång");
 			break;
 		}
+		// Igen helt redundant för jag hade kunnat använda en while loop
 		return choice;
 	}
 }
