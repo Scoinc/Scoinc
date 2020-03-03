@@ -25,10 +25,7 @@ public class Spel {
 		// Val av svårighetsgrad med switch case under
 		int choice;
 		System.out.println("\nVälkommen, välj svårighetsgrad:\n");
-		System.out.println("1 = Lätt");
-		System.out.println("2 = Medel");
-		System.out.println("3 = Svårt");
-		System.out.println("4 = Eget intervall\n");
+		System.out.println("1 = Lätt\n2 = Medel\n3 = Svårt\n4 = Eget intervall\n");
 
 		// Try catch för att det ska defaulta till lätt om det inte skrivs en int
 		try {
@@ -106,7 +103,7 @@ public class Spel {
 				if (choice == 1 || choice == 2) {
 					System.out.println("\nGrattis, du har rätt. Det tog " + (guesses + 1) + " gissningar");
 				} else if (choice == 3 || choice == 4) {
-					System.out.println("\nGrattis, du har vunnit med " + lives + " liv kvar");
+					System.out.println("\nGrattis, du har vunnit med " + (lives+1) + " liv kvar");
 				}
 				break;
 			} else if (guess > number) {
