@@ -13,7 +13,6 @@ public class Hangman {
 			// Val av svårighetsgrad med switch case under
 			int choice;
 			String word = "bug here";
-			String hidden = "bug here";
 			System.out.println("\nVälkommen, välj ord:\n");
 			System.out.println("1 = förbestämmt ord\n2 = skriv ord själv\n");
 
@@ -34,7 +33,7 @@ public class Hangman {
 				word = wordlist[random];
 				// debug: System.out.println(word);
 
-				System.out.println(game(word, hidden));
+				System.out.println(game(word));
 
 				break;
 			case 2:
@@ -52,20 +51,20 @@ public class Hangman {
 		System.out.println("\nKom tillbaka någon gång");
 	}
 
-	public static String game(String word, String hidden) {
+	public static String game(String word) {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 
 		word = word.toLowerCase();
 		ArrayList<Character> word2 = new ArrayList<Character>();
-		hidden = word.replace("", "_");
-		hidden = new String(new char[word.length()]).replace("\0", "_");
+		for(int i = word.length(); i > 0; i--) {
+			word2.add(word.charAt(i));
+		}
 
 		int lives = 7;
 		long guesses = 0;
 
 		for (int i = lives; i > 0; i--) {
-			System.out.println(hidden);
 			System.out.println("\nDu har " + i + " liv kvar");
 			String guess = sc.next();
 			//fortsätt koda här
