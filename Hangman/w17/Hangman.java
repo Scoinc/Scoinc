@@ -16,7 +16,7 @@ public class Hangman {
 			System.out.println("\nVälkommen, välj ord:\n");
 			System.out.println("1 = förbestämmt ord\n2 = skriv ord själv\n");
 
-			// simple try/catch
+			// short try/catch
 			try {
 				choice = sc.nextInt();
 			} catch (Exception e) {
@@ -31,14 +31,13 @@ public class Hangman {
 						"banana" };
 				int random = (int) (Math.random() * wordlist.length);
 				word = wordlist[random];
-				// debug: System.out.println(word);
 
 				System.out.println(game(word));
 
 				break;
 			case 2:
 				System.out.println("\nSkiv ett ord\n");
-				// input word
+				// input word to be programmed
 
 				break;
 
@@ -56,6 +55,10 @@ public class Hangman {
 		Scanner sc = new Scanner(System.in);
 
 		word = word.toLowerCase();
+		ArrayList<Character> guessword = new ArrayList<Character>();
+		for(char c : word.toCharArray()) {
+			guessword.add(c);
+		}
 		ArrayList<Character> asterisk = new ArrayList<Character>();
 		for(int i = word.length(); i > 0; i--) {
 			asterisk.add('*');
@@ -73,6 +76,9 @@ public class Hangman {
 			guess = guess.toLowerCase();
 			//fortsätt koda här
 			
+			if (guessword.contains(guess)) {
+				System.out.println("test");
+			}
 			
 			lives--;
 		}
