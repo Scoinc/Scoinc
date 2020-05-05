@@ -56,21 +56,23 @@ public class Hangman {
 		Scanner sc = new Scanner(System.in);
 
 		word = word.toLowerCase();
-		ArrayList<Character> word2 = new ArrayList<Character>();
+		ArrayList<Character> asterisk = new ArrayList<Character>();
 		for(int i = word.length(); i > 0; i--) {
-			word2.add(word.charAt(i));
+			asterisk.add('*');
 		}
+		
+		String word2 = asterisk.toString().replaceAll(", ", "");
 
 		int lives = 7;
 		long guesses = 0;
 
 		for (int i = lives; i > 0; i--) {
 			System.out.println("\nDu har " + i + " liv kvar");
+			System.out.println(word2);
 			String guess = sc.next();
+			guess = guess.toLowerCase();
 			//fortsätt koda här
 			
-			
-			guess = guess.toLowerCase();
 			
 			lives--;
 		}
