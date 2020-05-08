@@ -6,7 +6,7 @@ public class Hangman {
 	private static String fillword = "";
 
 	/*
-	 * Denna skiten Ã¤r sÃ¥ seg och jag vet inte varfÃ¶r
+	 * Denna skiten är så seg och jag vet inte varför
 	 */
 	public static void main(String[] args) {
 		boolean start = true;
@@ -15,17 +15,19 @@ public class Hangman {
 			@SuppressWarnings("resource")
 			Scanner sc = new Scanner(System.in);
 
-			// Val av svï¿½righetsgrad med switch case under
+			fillword = "";
+			// Val av svårighetsgrad med switch case under
 			int choice;
 			String word = "bug here";
-			System.out.println("\nVÃ¤lkommen, vÃ¤lj ord:\n");
-			System.out.println("1 = fÃ¶rbestÃ¤mmt ord\n2 = skriv ord sjÃ¤lv\n");
+			System.out.println("\nVälkommen, välj ord:\n");
+			System.out.println("1 = förbestämmt ord\n2 = skriv ord själv\n");
 
 			// short try/catch
 			try {
 				choice = sc.nextInt();
 			} catch (Exception e) {
 				choice = 1;
+				System.out.println("du var inte bra nog på att välja ett ord så jag gjorde det åt dig");
 			}
 
 			switch (choice) {
@@ -53,7 +55,7 @@ public class Hangman {
 			}
 		}
 
-		System.out.println("\nKom tillbaka nÃ¥gon gÃ¥ng");
+		System.out.println("\nKom tillbaka någon gång");
 	}
 
 	public static String game(String word) {
@@ -62,7 +64,7 @@ public class Hangman {
 
 		fillword(word);
 
-		// SÃ¥ mÃ¥nga strÃ¤ck den
+		// Så många sträck den
 		int lives = 7;
 
 		for (int i = lives; i > 0;) {
@@ -72,13 +74,13 @@ public class Hangman {
 			}
 
 			char cguess = 'b';
-			System.out.println("Gissa pÃ¥ bokstav/ord");
+			System.out.println("Gissa på bokstav/ord");
 			System.out.println(fillword);
 
 			String guess = sc.next().toLowerCase();
 
 			/*
-			 * Om gissningen inte Ã¤r en bokstav Ã¤r det antagligen en gissning pÃ¥ det rÃ¤tta
+			 * Om gissningen inte är en bokstav är det antagligen en gissning på det rätta
 			 * ordet
 			 */
 
@@ -86,7 +88,7 @@ public class Hangman {
 				break;
 			}
 
-			// Om gissningen Ã¤r bokstav
+			// Om gissningen är bokstav
 			else if (guess.length() == 1) {
 				cguess = guess.charAt(0);
 
@@ -95,15 +97,15 @@ public class Hangman {
 				}
 
 				else {
-					status(false, word, cguess, lives);
 					lives--;
+					status(false, word, cguess, lives);
 					i--;
 				}
 			}
 
 			else {
-				status(false, word, cguess, lives);
 				lives--;
+				status(false, word, cguess, lives);
 				i--;
 			}
 		}
@@ -115,7 +117,7 @@ public class Hangman {
 		}
 
 		else {
-			win = "You won, congratultaions!";
+			win = "\nYou won, the word was: " + word + "\n";
 		}
 
 		return win;
@@ -144,7 +146,7 @@ public class Hangman {
 				}
 			}
 		}
-
+		//Ascii hangman hämtad från: https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c#file-hangmanwordbank-py-L46
 		else {
 			switch (lives) {
 
