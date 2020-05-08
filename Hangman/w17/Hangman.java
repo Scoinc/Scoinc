@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Hangman {
 
 	private static String fillword = "";
+	private static ArrayList<String> wrongs = new ArrayList<>();
 
 	/*
 	 * Denna skiten är så seg och jag vet inte varför
@@ -16,6 +17,8 @@ public class Hangman {
 			Scanner sc = new Scanner(System.in);
 
 			fillword = "";
+			wrongs.clear();
+			
 			// Val av svårighetsgrad med switch case under
 			int choice;
 			String word = "bug here";
@@ -84,7 +87,11 @@ public class Hangman {
 			 * ordet
 			 */
 
-			if (guess.equals(word)) {
+			if(wrongs.toString().contains(guess)) {
+				System.out.println("Du har redan gissat på den");
+			}
+				
+			else if (guess.equals(word)) {
 				break;
 			}
 
@@ -100,6 +107,7 @@ public class Hangman {
 					lives--;
 					status(false, word, cguess, lives);
 					i--;
+					wrongs.add(guess);
 				}
 			}
 
@@ -108,6 +116,8 @@ public class Hangman {
 				status(false, word, cguess, lives);
 				i--;
 			}
+			
+			System.out.println("fel gissningar: " + wrongs.toString());
 		}
 
 		String win = "bug here";
