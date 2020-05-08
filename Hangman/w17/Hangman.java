@@ -3,18 +3,23 @@ import java.util.Scanner;
 
 public class Hangman {
 
+	private static String fillword = "";
+
+	/*
+	 * Denna skiten är så seg och jag vet inte varför
+	 */
 	public static void main(String[] args) {
 		boolean start = true;
 
 		while (start) {
 			@SuppressWarnings("resource")
 			Scanner sc = new Scanner(System.in);
-			
-			// Val av sv�righetsgrad med switch case under
+
+			// Val av sv�righetsgrad med switch case under
 			int choice;
 			String word = "bug here";
-			System.out.println("\nV�lkommen, v�lj ord:\n");
-			System.out.println("1 = f�rbest�mmt ord\n2 = skriv ord sj�lv\n");
+			System.out.println("\nVälkommen, välj ord:\n");
+			System.out.println("1 = förbestämmt ord\n2 = skriv ord själv\n");
 
 			// short try/catch
 			try {
@@ -27,17 +32,18 @@ public class Hangman {
 			case 1:
 				System.out.println("\nGissa ordet\n");
 				// grab word from wordlist
-				String[] wordlist = { "short", "osetoporosis", "pterodactyl", "supercalifragilisticexpialidocious",
+				String[] wordlist = { "short", "osteoporosis", "pterodactyl", "supercalifragilisticexpialidocious",
 						"banana" };
-				int random = (int) (Math.random() * wordlist.length);
-				word = wordlist[random];
+				word = wordlist[(int) (Math.random() * wordlist.length)];
 
 				System.out.println(game(word));
 
 				break;
 			case 2:
 				System.out.println("\nSkiv ett ord\n");
-				// input word to be programmed
+				// input own word here
+				word = sc.next();
+				System.out.println(game(word));
 
 				break;
 
@@ -47,45 +53,63 @@ public class Hangman {
 			}
 		}
 
-		System.out.println("\nKom tillbaka n�gon g�ng");
+		System.out.println("\nKom tillbaka någon gång");
 	}
 
 	public static String game(String word) {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 
-		word = word.toLowerCase();
-		ArrayList<Character> guessword = new ArrayList<Character>();
-		for(char c : word.toCharArray()) {
-			guessword.add(c);
-		}
-		ArrayList<Character> asterisk = new ArrayList<Character>();
-		for(int i = word.length(); i > 0; i--) {
-			asterisk.add('*');
-		}
-		
-		String word2 = asterisk.toString().replaceAll(", ", "");
+		fillword(word);
 
+		// Så många sträck den
 		int lives = 7;
-		long guesses = 0;
 
-		for (int i = lives; i > 0; i--) {
-			System.out.println("\nDu har " + i + " liv kvar");
-			System.out.println(word2);
-			String guess = sc.next();
-			guess = guess.toLowerCase();
-			//forts�tt koda h�r
-			
-			if (guessword.contains(guess)) {
-				System.out.println("test");
+		for (int i = lives; i > 0;) {
+
+			if (!fillword.contains("*")) {
+				break;
 			}
-			
-			lives--;
+
+			char cguess = 'b';
+			System.out.println("Gissa på bokstav/ord");
+			System.out.println(fillword);
+
+			String guess = sc.next().toLowerCase();
+
+			/*
+			 * Om gissningen inte är en bokstav är det antagligen en gissning på det rätta
+			 * ordet
+			 */
+
+			if (guess.equals(word)) {
+				break;
+			}
+
+			// Om gissningen är bokstav
+			else if (guess.length() == 1) {
+				cguess = guess.charAt(0);
+
+				if (word.contains(guess)) {
+					status(true, word, cguess, lives);
+				}
+
+				else {
+					status(false, word, cguess, lives);
+					lives--;
+					i--;
+				}
+			}
+
+			else {
+				status(false, word, cguess, lives);
+				lives--;
+				i--;
+			}
 		}
 
 		String win = "bug here";
 
-		System.out.println(lives);
 		if (lives <= 0) {
 			win = "You lost, too bad.";
 		}
@@ -95,5 +119,69 @@ public class Hangman {
 		}
 
 		return win;
+	}
+
+	private static void fillword(String word) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < word.length(); i++) {
+			fillword += "*";
+		}
+	}
+
+	private static void status(boolean bnan, String word, char cguess, int lives) {
+		// TODO Auto-generated method stub
+
+		if (bnan) {
+			for (int i = 0; i < word.length(); i++) {
+				if (cguess == word.charAt(i)) {
+					char[] wordarray = fillword.toCharArray();
+					for (int j = 0; j < word.length(); j++) {
+						if (word.toLowerCase().charAt(j) == cguess) {
+							wordarray[j] = cguess;
+						}
+					}
+					fillword = new String(wordarray);
+				}
+			}
+		}
+
+		else {
+			switch (lives) {
+
+			case 6:
+				System.out.println("  +---+\r\n" + "  |   |\r\n" + "      |\r\n" + "      |\r\n" + "      |\r\n"
+						+ "      |\r\n" + "=========");
+				break;
+
+			case 5:
+				System.out.println("  +---+\r\n" + "  |   |\r\n" + "  O   |\r\n" + "      |\r\n" + "      |\r\n"
+						+ "      |\r\n" + "=========");
+				break;
+
+			case 4:
+				System.out.println("  +---+\r\n" + "  |   |\r\n" + "  O   |\r\n" + "  |   |\r\n" + "      |\r\n"
+						+ "      |\r\n" + "=========");
+				break;
+
+			case 3:
+				System.out.println("  +---+\r\n" + "  |   |\r\n" + "  O   |\r\n" + " /|   |\r\n" + "      |\r\n"
+						+ "      |\r\n" + "=========");
+				break;
+
+			case 2:
+				System.out.println("  +---+\r\n" + "  |   |\r\n" + "  O   |\r\n" + " /|\\  |\r\n" + "      |\r\n"
+						+ "      |\r\n" + "=========");
+				break;
+
+			case 1:
+				System.out.println("  +---+\r\n" + "  |   |\r\n" + "  O   |\r\n" + " /|\\  |\r\n" + " /    |\r\n"
+						+ "      |\r\n" + "=========");
+				break;
+
+			case 0:
+				System.out.println("  +---+\r\n" + "  |   |\r\n" + "  O   |\r\n" + " /|\\  |\r\n" + " / \\  |\r\n"
+						+ "      |\r\n" + "=========");
+			}
+		}
 	}
 }
