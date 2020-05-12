@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Hangman {
 
+	private static Scanner sc = new Scanner(System.in);
 	private static String fillword = "";
 	private static ArrayList<String> wrongs = new ArrayList<>();
 
@@ -13,8 +14,6 @@ public class Hangman {
 		boolean start = true;
 
 		while (start) {
-			@SuppressWarnings("resource")
-			Scanner sc = new Scanner(System.in);
 
 			fillword = "";
 			wrongs.clear();
@@ -65,8 +64,6 @@ public class Hangman {
 	 * själva Spelet
 	 */
 	public static String game(String word) {
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
 
 		fillword(word);
 
@@ -80,21 +77,21 @@ public class Hangman {
 				break;
 			}
 
-			//cguess är i en else sats och måste därför initieras här.
+			// cguess är i en else sats och måste därför initieras här.
 			char cguess = 'b';
-			//printar gömda ordet och promptar gissning
+			// printar gömda ordet och promptar gissning
 			System.out.println("Gissa på bokstav/ord");
 			System.out.println(fillword);
 
-			//tar in gissning och ser till att den räknas som lowercase för gissningar
+			// tar in gissning och ser till att den räknas som lowercase för gissningar
 			String guess = sc.next().toLowerCase();
-			
-			//Kollar om din char redan är gissad
+
+			// Kollar om din char redan är gissad
 			if (wrongs.toString().contains(guess)) {
 				System.out.println("Du har redan gissat på den");
 			}
 
-			//om du gissar rätt ord vinner du
+			// om du gissar rätt ord vinner du
 			else if (guess.equals(word)) {
 				break;
 			}
@@ -103,12 +100,12 @@ public class Hangman {
 			else if (guess.length() == 1) {
 				cguess = guess.charAt(0);
 
-				//om bokstaven finns med i ordet
+				// om bokstaven finns med i ordet
 				if (word.contains(guess)) {
 					status(true, word, cguess, lives);
 				}
 
-				//om bokstaven inte finns med i ordet
+				// om bokstaven inte finns med i ordet
 				else {
 					lives--;
 					status(false, word, cguess, lives);
@@ -117,7 +114,7 @@ public class Hangman {
 				}
 			}
 
-			//Om du gissar på ett helt ord som inte är rätt
+			// Om du gissar på ett helt ord som inte är rätt
 			else {
 				lives--;
 				status(false, word, cguess, lives);
@@ -127,15 +124,15 @@ public class Hangman {
 			System.out.println("fel gissningar: " + wrongs.toString());
 		}
 
-		//initierar string
+		// initierar string
 		String win = "bug here";
 
-		//om du får slut på liv förlorar du
+		// om du får slut på liv förlorar du
 		if (lives <= 0) {
 			win = "You lost, too bad.";
 		}
 
-		//om spelet är över och du har liv kvar vinner du
+		// om spelet är över och du har liv kvar vinner du
 		else {
 			win = "\nYou won, the word was: " + word + "\n";
 		}
@@ -143,7 +140,7 @@ public class Hangman {
 		return win;
 	}
 
-	//Skapar asterisk ordet till samma längd som ordet
+	// Skapar asterisk ordet till samma längd som ordet
 	private static void fillword(String word) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < word.length(); i++) {
@@ -151,25 +148,22 @@ public class Hangman {
 		}
 	}
 
-	//De saker som händer efter gissning
+	// De saker som händer efter gissning
 	private static void status(boolean bnan, String word, char cguess, int lives) {
 		// TODO Auto-generated method stub
 
-		//Om gissning är rätt så skapas det en char array och det byts ut till den gissade bokstaven
+		// Om gissning är rätt så skapas det en char array och det byts ut till den
+		// gissade bokstaven
 		if (bnan) {
+			char[] wordarray = fillword.toCharArray();
 			for (int i = 0; i < word.length(); i++) {
 				if (cguess == word.charAt(i)) {
-					char[] wordarray = fillword.toCharArray();
-					for (int j = 0; j < word.length(); j++) {
-						if (word.toLowerCase().charAt(j) == cguess) {
-							wordarray[j] = cguess;
-						}
-					}
-					fillword = new String(wordarray);
+					wordarray[i] = cguess;
 				}
 			}
+			fillword = new String(wordarray);
 		}
-		//När du förlorar liv printar den en ascii hangman beroende på kvarvarande liv
+		// När du förlorar liv printar den en ascii hangman beroende på kvarvarande liv
 		// Ascii hangman hämtad från:
 		// https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c#file-hangmanwordbank-py-L46
 		else {
